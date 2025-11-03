@@ -1,0 +1,25 @@
+fastapi==0.115.9
+uvicorn[standard]==0.38.0
+openai==1.109.1
+chromadb==1.0.20
+langchain==0.0.300
+langchain-community==0.0.8
+langchain-openai==0.0.3
+pypdf==3.8.0
+tiktoken==0.5.2
+python-dotenv==1.0.1
+reportlab==4.0.0
+
+# Streamlit is optional for local UI testing only
+streamlit==1.51.0  # Optional - only needed if using streamlit_test.py
+
+# Google Gemini SDK (required for GeminiEmbeddings/GeminiChat adapter)
+# Google Gemini SDK (required for GeminiEmbeddings/GeminiChat adapter)
+google-generativeai==0.5.4
+
+# Google auth libraries (often used when using service account credentials)
+google-auth==2.29.0
+
+# Pydantic (matching pydantic-core used by some SDKs)
+pydantic==2.5.3
+pydantic-core==2.14.6

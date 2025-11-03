@@ -1,0 +1,15 @@
+2025-11-01 23:12:08 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-01 23:12:08 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-01 23:12:10 - INFO - Shutting down

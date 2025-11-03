@@ -1,0 +1,302 @@
+2025-11-02 01:28:24 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:28:24 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:29:04 - INFO - Uploaded file saved to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\Product Design 1.pdf
+2025-11-02 01:29:14 - INFO - Uploaded file saved to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\Product Design 1.pdf
+2025-11-02 01:33:54 - INFO - Uploaded file saved to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\Product Design 1.pdf
+2025-11-02 01:34:37 - INFO - Uploaded file saved to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\ONDC by McKinsey.pdf
+2025-11-02 01:37:08 - INFO - Shutting down
+2025-11-02 01:37:29 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:37:29 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:37:39 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:37:39 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:37:49 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:37:49 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:37:59 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:37:59 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:38:10 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:38:10 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:38:32 - INFO - Shutting down
+2025-11-02 01:38:41 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:38:41 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:42:53 - INFO - Shutting down
+2025-11-02 01:43:05 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:43:05 - ERROR - Startup initialization failed: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 56, in lifespan
+    embeddings = OpenAIEmbeddings()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for OpenAIEmbeddings
+__root__
+  Did not find openai_api_key, please add an environment variable `OPENAI_API_KEY` which contains it, or pass `openai_api_key` as a named parameter. (type=value_error)
+
+2025-11-02 01:45:13 - INFO - Shutting down
+2025-11-02 01:45:23 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:45:28 - ERROR - Startup initialization failed: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 87, in lifespan
+    _qa = ConversationalRetrievalChain.from_llm(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\conversational_retrieval\base.py", line 341, in from_llm
+    doc_chain = load_qa_chain(
+                ^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 249, in load_qa_chain
+    return loader_mapping[chain_type](
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 73, in _load_stuff_chain
+    llm_chain = LLMChain(
+                ^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\load\serializable.py", line 75, in __init__
+    super().__init__(**kwargs)
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+
+2025-11-02 01:45:39 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:45:42 - ERROR - Startup initialization failed: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 87, in lifespan
+    _qa = ConversationalRetrievalChain.from_llm(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\conversational_retrieval\base.py", line 341, in from_llm
+    doc_chain = load_qa_chain(
+                ^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 249, in load_qa_chain
+    return loader_mapping[chain_type](
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 73, in _load_stuff_chain
+    llm_chain = LLMChain(
+                ^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\load\serializable.py", line 75, in __init__
+    super().__init__(**kwargs)
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+
+2025-11-02 01:46:12 - INFO - Shutting down
+2025-11-02 01:46:22 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:46:29 - ERROR - Startup initialization failed: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 87, in lifespan
+    _qa = ConversationalRetrievalChain.from_llm(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\conversational_retrieval\base.py", line 341, in from_llm
+    doc_chain = load_qa_chain(
+                ^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 249, in load_qa_chain
+    return loader_mapping[chain_type](
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 73, in _load_stuff_chain
+    llm_chain = LLMChain(
+                ^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\load\serializable.py", line 75, in __init__
+    super().__init__(**kwargs)
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+
+2025-11-02 01:46:45 - INFO - Shutting down
+2025-11-02 01:47:17 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:47:20 - ERROR - Startup initialization failed: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 87, in lifespan
+    _qa = ConversationalRetrievalChain.from_llm(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\conversational_retrieval\base.py", line 341, in from_llm
+    doc_chain = load_qa_chain(
+                ^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 249, in load_qa_chain
+    return loader_mapping[chain_type](
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 73, in _load_stuff_chain
+    llm_chain = LLMChain(
+                ^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\load\serializable.py", line 75, in __init__
+    super().__init__(**kwargs)
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+
+2025-11-02 01:48:32 - INFO - Shutting down
+2025-11-02 01:57:01 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:57:06 - ERROR - Startup initialization failed: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 90, in lifespan
+    template = """Answer the question based on the following context:
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\conversational_retrieval\base.py", line 341, in from_llm
+    doc_chain = load_qa_chain(
+                ^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 249, in load_qa_chain
+    return loader_mapping[chain_type](
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\chains\question_answering\__init__.py", line 73, in _load_stuff_chain
+    llm_chain = LLMChain(
+                ^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain\load\serializable.py", line 75, in __init__
+    super().__init__(**kwargs)
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\pydantic\v1\main.py", line 347, in __init__
+    raise validation_error
+pydantic.v1.error_wrappers.ValidationError: 1 validation error for LLMChain
+llm
+  Can't instantiate abstract class BaseLanguageModel with abstract methods agenerate_prompt, apredict, apredict_messages, generate_prompt, invoke, predict, predict_messages (type=type_error)
+
+2025-11-02 01:57:18 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:57:21 - INFO - Startup initialization complete
+2025-11-02 01:57:32 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 01:57:34 - INFO - Startup initialization complete
+2025-11-02 11:50:20 - INFO - Shutting down
+2025-11-02 11:52:10 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 11:52:24 - INFO - Startup initialization complete
+2025-11-02 11:52:52 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 11:52:58 - INFO - Startup initialization complete
+2025-11-02 15:04:37 - INFO - Created new session: c0a8a073-65ca-4e15-9c95-70394412c65c
+2025-11-02 15:04:44 - ERROR - Query failed: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 387, in query_endpoint
+    retrieved_docs = _retriever.get_relevant_documents(full_q)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 224, in get_relevant_documents
+    raise e
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 217, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 654, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 348, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 437, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_openai\embeddings\base.py", line 511, in embed_query
+    return self.embed_documents([text])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_openai\embeddings\base.py", line 482, in embed_documents
+    return self._get_len_safe_embeddings(texts, engine=engine)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_openai\embeddings\base.py", line 325, in _get_len_safe_embeddings
+    response = self.client.create(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\openai\resources\embeddings.py", line 132, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\openai\_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+
+2025-11-02 15:05:41 - INFO - Uploaded file saved to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\Email Draft.pdf
+2025-11-02 15:06:18 - INFO - Uploaded file saved to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\Email Draft.pdf
+2025-11-02 15:07:35 - INFO - Shutting down
+2025-11-02 15:08:38 - INFO - Starting up: initializing embeddings and vectorstore
+2025-11-02 15:08:52 - INFO - Startup initialization complete
+2025-11-02 15:14:31 - INFO - Shutting down

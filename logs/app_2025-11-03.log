@@ -1,0 +1,1511 @@
+2025-11-03 11:27:57 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:28:00 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:28:05 - INFO - app.py:167 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:28:05 - INFO - app.py:180 - Initialized GeminiChat as LLM
+2025-11-03 11:28:05 - INFO - app.py:202 - Startup initialization complete
+2025-11-03 11:28:06 - INFO - app.py:208 - Shutting down
+2025-11-03 11:28:19 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:28:20 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:28:23 - INFO - app.py:167 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:28:23 - INFO - app.py:180 - Initialized GeminiChat as LLM
+2025-11-03 11:28:23 - INFO - app.py:202 - Startup initialization complete
+2025-11-03 11:28:40 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:28:41 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:28:43 - INFO - app.py:167 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:28:43 - INFO - app.py:180 - Initialized GeminiChat as LLM
+2025-11-03 11:28:43 - INFO - app.py:202 - Startup initialization complete
+2025-11-03 11:30:15 - INFO - app.py:246 - Created new session: cccb0b34-fa4a-44f4-8471-8c1832444a12
+2025-11-03 11:30:15 - ERROR - app.py:705 - Query failed: 'function' object has no attribute 'embed_query'
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 681, in query_endpoint
+    retrieved_docs = _retriever.get_relevant_documents(full_q)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 224, in get_relevant_documents
+    raise e
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 217, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 654, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 348, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 437, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'embed_query'
+
+2025-11-03 11:32:37 - INFO - app.py:208 - Shutting down
+2025-11-03 11:32:51 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:32:52 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:32:55 - INFO - app.py:167 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:32:55 - INFO - app.py:180 - Initialized GeminiChat as LLM
+2025-11-03 11:32:55 - INFO - app.py:202 - Startup initialization complete
+2025-11-03 11:36:18 - INFO - app.py:208 - Shutting down
+2025-11-03 11:36:33 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:36:34 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:36:36 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:36:36 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:36:36 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:37:22 - INFO - app.py:264 - Created new session: e952c5bd-871b-4c1d-986e-a4c714f93d44
+2025-11-03 11:37:23 - ERROR - app.py:723 - Query failed: Failed to embed query: list indices must be integers or slices, not str
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 103, in embed_query
+    return result['embedding']['values']
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 699, in query_endpoint
+    retrieved_docs = _retriever.get_relevant_documents(full_q)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 224, in get_relevant_documents
+    raise e
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 217, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 654, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 348, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 437, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 174, in embed_query
+    return self._provider.embed_query(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 105, in embed_query
+    raise GeminiError(f"Failed to embed query: {e}")
+src.gemini.GeminiError: Failed to embed query: list indices must be integers or slices, not str
+
+2025-11-03 11:37:50 - INFO - app.py:226 - Shutting down
+2025-11-03 11:38:07 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:38:09 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:38:10 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:38:10 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:38:10 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:39:25 - INFO - app.py:226 - Shutting down
+2025-11-03 11:39:38 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:39:40 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:39:42 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:39:42 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:39:42 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:39:57 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:39:58 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:40:00 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:40:00 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:40:00 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:40:16 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:40:17 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:40:20 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:40:20 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:40:20 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:40:52 - INFO - app.py:226 - Shutting down
+2025-11-03 11:45:58 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:46:01 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:46:04 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:46:04 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:46:04 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:46:28 - INFO - app.py:264 - Created new session: 03a47589-0a7e-4659-a111-2adae3f55657
+2025-11-03 11:46:29 - ERROR - app.py:729 - Query failed: Failed to embed query: Unexpected embed_query response format: <class 'dict'>
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 123, in embed_query
+    raise GeminiError(f"Unexpected embed_query response format: {type(result)}")
+src.gemini.GeminiError: Unexpected embed_query response format: <class 'dict'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 705, in query_endpoint
+    retrieved_docs = _retriever.get_relevant_documents(full_q)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 224, in get_relevant_documents
+    raise e
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 217, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 654, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 348, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 437, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 174, in embed_query
+    return self._provider.embed_query(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 125, in embed_query
+    raise GeminiError(f"Failed to embed query: {e}")
+src.gemini.GeminiError: Failed to embed query: Unexpected embed_query response format: <class 'dict'>
+
+2025-11-03 11:47:42 - INFO - app.py:226 - Shutting down
+2025-11-03 11:47:56 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:47:58 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:48:01 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:48:01 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:48:01 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:48:06 - INFO - app.py:226 - Shutting down
+2025-11-03 11:48:16 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:48:17 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:48:19 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:48:19 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:48:19 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:49:59 - INFO - app.py:226 - Shutting down
+2025-11-03 11:50:14 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:50:16 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:50:18 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:50:18 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:50:18 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 11:51:04 - INFO - app.py:264 - Created new session: 491b7d84-cd55-4fdb-b971-d4e39cda1be8
+2025-11-03 11:51:05 - ERROR - app.py:729 - Query failed: Failed to embed query: Unexpected embed_query response format: <class 'dict'>
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 154, in embed_query
+    raise GeminiError(f"Unexpected embed_query response format: {type(result)}")
+src.gemini.GeminiError: Unexpected embed_query response format: <class 'dict'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 705, in query_endpoint
+    retrieved_docs = _retriever.get_relevant_documents(full_q)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 224, in get_relevant_documents
+    raise e
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 217, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 654, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 348, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 437, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 174, in embed_query
+    return self._provider.embed_query(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 156, in embed_query
+    raise GeminiError(f"Failed to embed query: {e}")
+src.gemini.GeminiError: Failed to embed query: Unexpected embed_query response format: <class 'dict'>
+
+2025-11-03 11:51:48 - INFO - app.py:226 - Shutting down
+2025-11-03 11:52:01 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 11:52:02 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 11:52:03 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 11:52:03 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 11:52:03 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:15:33 - INFO - app.py:226 - Shutting down
+2025-11-03 12:15:47 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:15:49 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:15:51 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:15:51 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:15:51 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:16:31 - INFO - app.py:226 - Shutting down
+2025-11-03 12:16:41 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:16:42 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:16:43 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:16:43 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:16:43 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:17:29 - INFO - app.py:226 - Shutting down
+2025-11-03 12:17:39 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:17:40 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:17:42 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:17:42 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:17:42 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:29:41 - INFO - app.py:226 - Shutting down
+2025-11-03 12:29:53 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:29:54 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:29:57 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:29:57 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:29:57 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:35:56 - INFO - app.py:226 - Shutting down
+2025-11-03 12:36:07 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:36:08 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:36:10 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:36:10 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:36:10 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:39:21 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:39:26 - INFO - app.py:226 - Shutting down
+2025-11-03 12:39:27 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:39:34 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:39:34 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:39:34 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:40:16 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:40:16 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:40:19 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:40:19 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:40:23 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:40:23 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:40:23 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:40:23 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:40:23 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:40:23 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:40:51 - INFO - app.py:264 - Created new session: 36728159-03fd-4c97-adae-b93c0b4a9aac
+2025-11-03 12:40:53 - ERROR - app.py:729 - Query failed: Failed to embed query: Unexpected embed_query response format: <class 'dict'>
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 155, in embed_query
+    raise GeminiError(f"Unexpected embed_query response format: {type(result)}")
+src.gemini.GeminiError: Unexpected embed_query response format: <class 'dict'>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 705, in query_endpoint
+    retrieved_docs = _retriever.get_relevant_documents(full_q)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 224, in get_relevant_documents
+    raise e
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 217, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 654, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 348, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 437, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 174, in embed_query
+    return self._provider.embed_query(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 157, in embed_query
+    raise GeminiError(f"Failed to embed query: {e}")
+src.gemini.GeminiError: Failed to embed query: Unexpected embed_query response format: <class 'dict'>
+
+2025-11-03 12:42:50 - INFO - app.py:226 - Shutting down
+2025-11-03 12:43:09 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:43:10 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:43:13 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:43:13 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:43:13 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:44:02 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:44:03 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:44:05 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:44:05 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:44:05 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:44:10 - INFO - app.py:264 - Created new session: 03955077-cab5-4b45-86d7-167f9640afae
+2025-11-03 12:44:12 - ERROR - app.py:729 - Query failed: Failed to generate chat response: GenerativeModel.generate_content() got an unexpected keyword argument 'context'
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 192, in generate
+    response = self.model.generate_content(prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GenerativeModel.generate_content() got an unexpected keyword argument 'context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 708, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 216, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 198, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 195, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: GenerativeModel.generate_content() got an unexpected keyword argument 'context'
+
+2025-11-03 12:44:57 - INFO - app.py:226 - Shutting down
+2025-11-03 12:44:57 - INFO - app.py:226 - Shutting down
+2025-11-03 12:45:10 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:45:11 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:45:13 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:45:13 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:45:13 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:45:51 - INFO - app.py:226 - Shutting down
+2025-11-03 12:46:03 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:46:04 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:46:06 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:46:06 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:46:06 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:46:21 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:46:22 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:46:24 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:46:24 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:46:24 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:47:06 - INFO - app.py:264 - Created new session: 10a1d6c1-4fdb-4c4f-bb23-3375dbe3871d
+2025-11-03 12:47:08 - ERROR - app.py:729 - Query failed: Failed to generate chat response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 200, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 708, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 216, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 212, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 209, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/gemini-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 12:53:07 - INFO - app.py:226 - Shutting down
+2025-11-03 12:53:22 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:53:23 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:53:25 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:53:25 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:53:25 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:54:00 - INFO - app.py:226 - Shutting down
+2025-11-03 12:54:12 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:54:13 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:54:15 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:54:15 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:54:15 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:56:59 - INFO - app.py:226 - Shutting down
+2025-11-03 12:57:11 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:57:13 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:57:15 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:57:15 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:57:15 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:57:27 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:57:28 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:57:31 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:57:31 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:57:31 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 12:57:42 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 12:57:44 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 12:57:46 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 12:57:46 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 12:57:46 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:08:28 - INFO - app.py:226 - Shutting down
+2025-11-03 13:08:49 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:08:51 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:08:55 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:08:55 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:08:55 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:10:03 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:10:06 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:10:08 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:10:08 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:10:08 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:10:24 - INFO - app.py:264 - Created new session: ab3e7859-95c0-4be0-bf2e-3a3eef6fcb99
+2025-11-03 13:10:26 - ERROR - app.py:729 - Query failed: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 234, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 708, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 216, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 246, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 243, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 13:18:36 - INFO - app.py:226 - Shutting down
+2025-11-03 13:18:49 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:18:50 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:18:52 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:18:52 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:18:52 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:19:15 - INFO - app.py:226 - Shutting down
+2025-11-03 13:19:25 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:19:27 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:19:28 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:19:28 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:19:28 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:19:31 - INFO - app.py:226 - Shutting down
+2025-11-03 13:19:42 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:19:43 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:19:44 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:19:44 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:19:44 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:19:45 - INFO - app.py:226 - Shutting down
+2025-11-03 13:19:56 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:19:57 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:19:59 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:19:59 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:19:59 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:20:10 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:20:12 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:20:15 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:20:15 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:20:15 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:20:28 - INFO - app.py:226 - Shutting down
+2025-11-03 13:20:39 - INFO - app.py:89 - Starting up: attempting to initialize embeddings and vectorstore (Gemini preferred)
+2025-11-03 13:20:40 - INFO - app.py:100 - Using GeminiEmbeddings as the embeddings provider
+2025-11-03 13:20:43 - INFO - app.py:185 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:20:43 - INFO - app.py:198 - Initialized GeminiChat as LLM
+2025-11-03 13:20:43 - INFO - app.py:220 - Startup initialization complete
+2025-11-03 13:22:47 - INFO - app.py:226 - Shutting down
+2025-11-03 13:22:59 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:22:59 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:23:01 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:23:03 - INFO - app.py:186 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:23:03 - INFO - app.py:199 - Initialized GeminiChat as LLM
+2025-11-03 13:23:03 - INFO - app.py:221 - Startup initialization complete
+2025-11-03 13:23:04 - INFO - app.py:227 - Shutting down
+2025-11-03 13:23:13 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:23:13 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:23:15 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:23:17 - INFO - app.py:186 - Vectorstore (Chroma) initialized and retriever created
+2025-11-03 13:23:17 - INFO - app.py:199 - Initialized GeminiChat as LLM
+2025-11-03 13:23:17 - INFO - app.py:221 - Startup initialization complete
+2025-11-03 13:23:20 - INFO - app.py:227 - Shutting down
+2025-11-03 13:23:29 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:23:29 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:23:31 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:23:31 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:23:33 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:23:33 - INFO - app.py:200 - Initialized GeminiChat as LLM
+2025-11-03 13:23:33 - INFO - app.py:222 - Startup initialization complete
+2025-11-03 13:23:35 - INFO - app.py:228 - Shutting down
+2025-11-03 13:23:44 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:23:44 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:23:45 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:23:45 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:23:48 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:23:48 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:23:48 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:23:48 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:23:53 - INFO - app.py:229 - Shutting down
+2025-11-03 13:24:03 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:24:03 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:24:05 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:24:05 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:24:07 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:24:07 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:24:07 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:24:07 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:24:09 - INFO - app.py:229 - Shutting down
+2025-11-03 13:24:19 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:24:19 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:24:21 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:24:21 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:24:23 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:24:23 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:24:23 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:24:23 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:24:25 - INFO - app.py:229 - Shutting down
+2025-11-03 13:24:35 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:24:35 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:24:37 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:24:37 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:24:39 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:24:39 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:24:39 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:24:39 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:24:42 - INFO - app.py:229 - Shutting down
+2025-11-03 13:24:53 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:24:53 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:24:54 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:24:54 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:24:56 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:24:56 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:24:56 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:24:56 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:26:27 - INFO - app.py:229 - Shutting down
+2025-11-03 13:26:37 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:26:37 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:26:39 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:26:39 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:26:41 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:26:41 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:26:41 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:26:41 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:26:52 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:26:52 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:26:54 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:26:54 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:26:56 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:26:56 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:26:56 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:26:56 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:27:03 - INFO - app.py:229 - Shutting down
+2025-11-03 13:27:13 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:27:13 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:27:14 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:27:14 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:27:17 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:27:17 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:27:17 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:27:17 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:27:27 - INFO - app.py:229 - Shutting down
+2025-11-03 13:27:36 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:27:36 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:27:38 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:27:38 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:27:40 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:27:40 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:27:40 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:27:40 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:27:48 - INFO - app.py:229 - Shutting down
+2025-11-03 13:27:57 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:27:57 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:27:58 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:27:58 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:28:01 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:28:01 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:28:01 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:28:01 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:28:12 - INFO - app.py:229 - Shutting down
+2025-11-03 13:28:55 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:28:55 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:28:57 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:28:57 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:28:59 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:28:59 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:28:59 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:28:59 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:29:24 - INFO - app.py:229 - Shutting down
+2025-11-03 13:29:37 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:29:37 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:29:39 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:29:39 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:29:41 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:29:41 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:29:41 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:29:41 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:38:41 - INFO - app.py:229 - Shutting down
+2025-11-03 13:39:03 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 13:39:03 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 13:39:06 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 13:39:06 - INFO - app.py:184 - Vectorstore: initializing Chroma with embeddings. Purpose: store and search document vectors. Expected outcome: working retriever.
+2025-11-03 13:39:10 - INFO - app.py:187 - Vectorstore: initialization successful. Result: retriever created with k=4 documents per query.
+2025-11-03 13:39:10 - INFO - app.py:195 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 13:39:10 - INFO - app.py:201 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 13:39:10 - INFO - app.py:223 - Startup initialization complete
+2025-11-03 13:39:18 - INFO - app.py:365 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 13:39:18 - INFO - app.py:371 - Library: found 4 PDF(s). Result: returning file list to client.
+2025-11-03 13:39:34 - INFO - app.py:268 - History: created new session 32c1ea8e-f916-4d88-8ab9-839f0af2e707. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 13:39:35 - INFO - app.py:701 - Query: starting query execution for session 32c1ea8e-f916-4d88-8ab9-839f0af2e707. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 13:39:35 - INFO - app.py:723 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 13:39:36 - INFO - app.py:726 - Retriever: found 0 relevant docs. Next step: generate answer using LLM.
+2025-11-03 13:39:36 - INFO - app.py:729 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 13:39:36 - ERROR - app.py:752 - Query: failed for session 32c1ea8e-f916-4d88-8ab9-839f0af2e707. Error in GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 238, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 730, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 219, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 250, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 247, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 13:40:01 - INFO - app.py:365 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 13:40:01 - INFO - app.py:371 - Library: found 4 PDF(s). Result: returning file list to client.
+2025-11-03 13:40:14 - INFO - app.py:268 - History: created new session 2147d2f0-1e29-4d73-9a08-11bcd6428225. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 13:40:14 - INFO - app.py:701 - Query: starting query execution for session 2147d2f0-1e29-4d73-9a08-11bcd6428225. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 13:40:14 - INFO - app.py:723 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 13:40:14 - INFO - app.py:726 - Retriever: found 0 relevant docs. Next step: generate answer using LLM.
+2025-11-03 13:40:14 - INFO - app.py:729 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 13:40:15 - ERROR - app.py:752 - Query: failed for session 2147d2f0-1e29-4d73-9a08-11bcd6428225. Error in GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 238, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 730, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 219, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 250, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 247, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 14:09:20 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:09:20 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:09:21 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:09:21 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:09:23 - INFO - app.py:189 - Vectorstore: connected to database. Status: found 0 stored vectors. Purpose: verify data availability.
+2025-11-03 14:09:23 - INFO - app.py:194 - Vectorstore: created retriever. Config: k=4 docs per query. Next step: ready for search.
+2025-11-03 14:09:23 - INFO - app.py:202 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 14:09:23 - INFO - app.py:208 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:09:23 - INFO - app.py:230 - Startup initialization complete
+2025-11-03 14:09:37 - INFO - app.py:390 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 14:09:37 - INFO - app.py:396 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 14:10:00 - INFO - app.py:275 - History: created new session ba5befa1-d367-4659-bfe1-5155d8a1ae4d. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 14:10:00 - INFO - app.py:726 - Query: starting query execution for session ba5befa1-d367-4659-bfe1-5155d8a1ae4d. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 14:10:00 - INFO - app.py:740 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 14:10:00 - INFO - app.py:749 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 14:10:01 - INFO - app.py:752 - Retriever: found 0 relevant docs. Next step: generate answer using LLM.
+2025-11-03 14:10:01 - INFO - app.py:755 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 14:10:01 - ERROR - app.py:778 - Query: failed for session ba5befa1-d367-4659-bfe1-5155d8a1ae4d. Error in GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 208, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 756, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 226, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 220, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 217, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 14:11:51 - INFO - app.py:236 - Shutting down
+2025-11-03 14:12:06 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:12:06 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:12:08 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:12:08 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:12:10 - INFO - app.py:193 - Vectorstore: connected to database. Status: found 0 stored vectors. Purpose: verify data availability.
+2025-11-03 14:12:10 - INFO - app.py:204 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:12:10 - INFO - app.py:212 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 14:12:10 - INFO - app.py:218 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:12:10 - INFO - app.py:240 - Startup initialization complete
+2025-11-03 14:12:13 - INFO - app.py:246 - Shutting down
+2025-11-03 14:13:02 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:13:02 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:13:03 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:13:03 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:13:06 - INFO - app.py:193 - Vectorstore: connected to database. Status: found 0 stored vectors. Purpose: verify data availability.
+2025-11-03 14:13:06 - INFO - app.py:204 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:13:06 - INFO - app.py:212 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 14:13:06 - INFO - app.py:218 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:13:06 - INFO - app.py:240 - Startup initialization complete
+2025-11-03 14:13:06 - INFO - app.py:400 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 14:13:06 - INFO - app.py:406 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 14:13:20 - INFO - app.py:285 - History: created new session 5110ae65-cde6-41e7-a871-f701be51b184. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 14:13:20 - INFO - app.py:736 - Query: starting query execution for session 5110ae65-cde6-41e7-a871-f701be51b184. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 14:13:20 - INFO - app.py:750 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 14:13:20 - INFO - app.py:759 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 14:13:21 - INFO - app.py:762 - Retriever: found 0 relevant docs. Next step: generate answer using LLM.
+2025-11-03 14:13:21 - INFO - app.py:765 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 14:13:21 - ERROR - app.py:788 - Query: failed for session 5110ae65-cde6-41e7-a871-f701be51b184. Error in GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 208, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 766, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 236, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 220, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 217, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 14:15:25 - INFO - app.py:246 - Shutting down
+2025-11-03 14:15:39 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:15:39 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:15:41 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:15:41 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:15:43 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:15:43 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:15:43 - INFO - app.py:233 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 14:15:43 - INFO - app.py:239 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:15:43 - INFO - app.py:261 - Startup initialization complete
+2025-11-03 14:15:48 - INFO - app.py:267 - Shutting down
+2025-11-03 14:16:01 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:16:01 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:16:03 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:16:03 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:16:05 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:16:05 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:16:05 - INFO - app.py:233 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 14:16:05 - INFO - app.py:239 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:16:05 - INFO - app.py:261 - Startup initialization complete
+2025-11-03 14:16:30 - INFO - app.py:267 - Shutting down
+2025-11-03 14:16:55 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:16:55 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:16:56 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:16:56 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:16:59 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:16:59 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:16:59 - INFO - app.py:233 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gpt-4-mini, temperature=0.2
+2025-11-03 14:16:59 - INFO - app.py:239 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:16:59 - INFO - app.py:261 - Startup initialization complete
+2025-11-03 14:17:37 - INFO - app.py:421 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 14:17:37 - INFO - app.py:427 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 14:17:48 - INFO - app.py:306 - History: created new session 78f14847-5959-4a02-9e60-2cd3830a8f81. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 14:17:48 - INFO - app.py:757 - Query: starting query execution for session 78f14847-5959-4a02-9e60-2cd3830a8f81. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 14:17:48 - INFO - app.py:771 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 14:17:48 - INFO - app.py:780 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 14:17:49 - INFO - app.py:783 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 14:17:49 - INFO - app.py:786 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 14:17:49 - ERROR - app.py:809 - Query: failed for session 78f14847-5959-4a02-9e60-2cd3830a8f81. Error in GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 208, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 787, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 257, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 220, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 217, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 14:24:49 - INFO - app.py:267 - Shutting down
+2025-11-03 14:25:14 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:25:14 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:25:16 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:25:16 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:25:20 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:25:20 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:25:20 - INFO - app.py:235 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-pro, temperature=0.2
+2025-11-03 14:25:20 - INFO - app.py:241 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:25:20 - INFO - app.py:263 - Startup initialization complete
+2025-11-03 14:25:25 - INFO - app.py:269 - Shutting down
+2025-11-03 14:25:36 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:25:36 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:25:37 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:25:37 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:25:40 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:25:40 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:25:40 - INFO - app.py:235 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-pro, temperature=0.2
+2025-11-03 14:25:40 - INFO - app.py:241 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:25:40 - INFO - app.py:263 - Startup initialization complete
+2025-11-03 14:26:08 - INFO - app.py:269 - Shutting down
+2025-11-03 14:32:00 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:32:00 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:32:01 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:32:01 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:32:04 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:32:04 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:32:04 - INFO - app.py:235 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-pro, temperature=0.2
+2025-11-03 14:32:04 - INFO - app.py:241 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:32:04 - INFO - app.py:263 - Startup initialization complete
+2025-11-03 14:32:10 - INFO - app.py:423 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 14:32:11 - INFO - app.py:429 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 14:32:21 - INFO - app.py:308 - History: created new session 17777236-f53d-4f6b-86f4-5340ebf208a5. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 14:32:21 - INFO - app.py:759 - Query: starting query execution for session 17777236-f53d-4f6b-86f4-5340ebf208a5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 14:32:21 - INFO - app.py:773 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 14:32:21 - INFO - app.py:782 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 14:32:23 - INFO - app.py:785 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 14:32:23 - INFO - app.py:788 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 14:32:23 - ERROR - app.py:811 - Query: failed for session 17777236-f53d-4f6b-86f4-5340ebf208a5. Error in GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 208, in generate
+    response = self.model.generate_content(full_prompt, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\generative_models.py", line 331, in generate_content
+    response = self._client.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 835, in generate_content
+    response = rpc(
+               ^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\api_core\grpc_helpers.py", line 77, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 789, in query_endpoint
+    answer = _qa(full_q, chat_history)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 259, in _qa_call
+    return _llm(prompt=question, context=context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 220, in __call__
+    return self.generate(prompt, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 217, in generate
+    raise GeminiError(f"Failed to generate chat response: {e}")
+src.gemini.GeminiError: Failed to generate chat response: 404 models/text-bison-001 is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+
+2025-11-03 14:47:48 - INFO - app.py:269 - Shutting down
+2025-11-03 14:48:16 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:48:16 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:48:19 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:48:19 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:48:22 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:48:22 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:48:22 - INFO - app.py:238 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-2.5-flash, temperature=0.2
+2025-11-03 14:48:22 - INFO - app.py:253 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:48:22 - INFO - app.py:275 - Startup initialization complete
+2025-11-03 14:48:34 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:48:34 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:48:35 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:48:35 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:48:37 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:48:37 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:48:37 - INFO - app.py:238 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-2.5-flash, temperature=0.2
+2025-11-03 14:48:37 - INFO - app.py:253 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:48:37 - INFO - app.py:275 - Startup initialization complete
+2025-11-03 14:48:48 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:48:48 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:48:49 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:48:49 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:48:51 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:48:51 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:48:51 - INFO - app.py:238 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-2.5-flash, temperature=0.2
+2025-11-03 14:48:51 - INFO - app.py:253 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:48:51 - INFO - app.py:275 - Startup initialization complete
+2025-11-03 14:49:02 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:49:02 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:49:04 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:49:04 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:49:06 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:49:06 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:49:06 - INFO - app.py:238 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-2.5-flash, temperature=0.2
+2025-11-03 14:49:06 - INFO - app.py:253 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:49:06 - INFO - app.py:275 - Startup initialization complete
+2025-11-03 14:49:27 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:49:27 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:49:28 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:49:28 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:49:31 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:49:31 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:49:31 - INFO - app.py:238 - LLM: initializing GeminiChat. Purpose: generate natural language responses. Config: model=gemini-2.5-flash, temperature=0.2
+2025-11-03 14:49:31 - INFO - app.py:253 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:49:31 - INFO - app.py:275 - Startup initialization complete
+2025-11-03 14:49:34 - INFO - app.py:435 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 14:49:34 - INFO - app.py:441 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 14:49:42 - INFO - app.py:320 - History: created new session 8c8bd8e4-37b7-4d50-b034-e58f9a46d4d4. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 14:49:42 - INFO - app.py:771 - Query: starting query execution for session 8c8bd8e4-37b7-4d50-b034-e58f9a46d4d4. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 14:49:42 - INFO - app.py:785 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 14:49:42 - INFO - app.py:794 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 14:49:42 - ERROR - app.py:823 - Query: failed for session 8c8bd8e4-37b7-4d50-b034-e58f9a46d4d4. Error in GeminiError: Failed to embed query: Invalid input type. Expected one of the following types: `str`, `Model`, or `TunedModel`.
+Stack trace:
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 132, in embed_query
+    result = self._genai.embed_content(model=self.model_name, content=text, task_type="retrieval_query")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\embedding.py", line 163, in embed_content
+    model = model_types.make_model_name(model)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\google\generativeai\types\model_types.py", line 363, in make_model_name
+    raise TypeError(
+TypeError: Invalid input type. Expected one of the following types: `str`, `Model`, or `TunedModel`.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 796, in query_endpoint
+    retrieved_docs = _retriever.get_relevant_documents(full_q)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 224, in get_relevant_documents
+    raise e
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\retrievers.py", line 217, in get_relevant_documents
+    result = self._get_relevant_documents(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 654, in _get_relevant_documents
+    docs = self.vectorstore.similarity_search(query, **self.search_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 348, in similarity_search
+    docs_and_scores = self.similarity_search_with_score(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 437, in similarity_search_with_score
+    query_embedding = self._embedding_function.embed_query(query)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\app.py", line 175, in embed_query
+    return self._provider.embed_query(text)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\gemini.py", line 150, in embed_query
+    raise GeminiError(f"Failed to embed query: {e}")
+src.gemini.GeminiError: Failed to embed query: Invalid input type. Expected one of the following types: `str`, `Model`, or `TunedModel`.
+
+2025-11-03 14:51:27 - INFO - app.py:281 - Shutting down
+2025-11-03 14:59:29 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:59:29 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:59:31 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:59:31 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:59:35 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:59:35 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:59:35 - INFO - app.py:238 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 14:59:35 - INFO - app.py:254 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:59:35 - INFO - app.py:276 - Startup initialization complete
+2025-11-03 14:59:47 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 14:59:47 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 14:59:48 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 14:59:48 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 14:59:50 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 14:59:50 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 14:59:50 - INFO - app.py:238 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 14:59:50 - INFO - app.py:254 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 14:59:50 - INFO - app.py:276 - Startup initialization complete
+2025-11-03 15:00:21 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 15:00:21 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:00:22 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:00:22 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:00:25 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:00:25 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:00:25 - INFO - app.py:238 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:00:25 - INFO - app.py:254 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:00:25 - INFO - app.py:276 - Startup initialization complete
+2025-11-03 15:00:28 - INFO - app.py:436 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 15:00:28 - INFO - app.py:442 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 15:00:34 - INFO - app.py:321 - History: created new session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 15:00:34 - INFO - app.py:772 - Query: starting query execution for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:00:34 - INFO - app.py:786 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:00:34 - INFO - app.py:795 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:00:35 - INFO - app.py:798 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:00:35 - INFO - app.py:801 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:00:38 - INFO - app.py:803 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:00:38 - INFO - app.py:819 - Query: completed successfully for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Result: answer generated with 1 source(s).
+2025-11-03 15:01:12 - INFO - app.py:315 - History: reusing existing chat history for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: maintain conversation context.
+2025-11-03 15:01:12 - INFO - app.py:772 - Query: starting query execution for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:01:12 - INFO - app.py:786 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:01:12 - INFO - app.py:795 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:01:12 - INFO - app.py:798 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:01:12 - INFO - app.py:801 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:01:16 - INFO - app.py:803 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:01:16 - INFO - app.py:819 - Query: completed successfully for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Result: answer generated with 1 source(s).
+2025-11-03 15:01:54 - INFO - app.py:315 - History: reusing existing chat history for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: maintain conversation context.
+2025-11-03 15:01:54 - INFO - app.py:772 - Query: starting query execution for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:01:54 - INFO - app.py:786 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:01:54 - INFO - app.py:795 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:01:54 - INFO - app.py:798 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:01:54 - INFO - app.py:801 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:01:57 - INFO - app.py:803 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:01:57 - INFO - app.py:819 - Query: completed successfully for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Result: answer generated with 1 source(s).
+2025-11-03 15:02:34 - INFO - app.py:315 - History: reusing existing chat history for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: maintain conversation context.
+2025-11-03 15:02:34 - INFO - app.py:772 - Query: starting query execution for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:02:34 - INFO - app.py:786 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:02:34 - INFO - app.py:795 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:02:35 - INFO - app.py:798 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:02:35 - INFO - app.py:801 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:02:44 - INFO - app.py:803 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:02:44 - INFO - app.py:819 - Query: completed successfully for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Result: answer generated with 1 source(s).
+2025-11-03 15:03:38 - INFO - app.py:282 - Shutting down
+2025-11-03 15:03:54 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 15:03:54 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:03:56 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:03:56 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:03:58 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:03:58 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:03:58 - INFO - app.py:238 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:03:58 - INFO - app.py:254 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:03:58 - INFO - app.py:276 - Startup initialization complete
+2025-11-03 15:04:12 - INFO - app.py:321 - History: created new session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 15:04:12 - INFO - app.py:772 - Query: starting query execution for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:04:12 - INFO - app.py:786 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:04:12 - INFO - app.py:795 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:04:14 - INFO - app.py:798 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:04:14 - INFO - app.py:801 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:04:16 - INFO - app.py:803 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:04:16 - INFO - app.py:819 - Query: completed successfully for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Result: answer generated with 1 source(s).
+2025-11-03 15:04:31 - INFO - app.py:315 - History: reusing existing chat history for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: maintain conversation context.
+2025-11-03 15:04:31 - INFO - app.py:772 - Query: starting query execution for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:04:31 - INFO - app.py:786 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:04:31 - INFO - app.py:795 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:04:32 - INFO - app.py:798 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:04:32 - INFO - app.py:801 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:05:03 - INFO - app.py:803 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:05:03 - INFO - app.py:819 - Query: completed successfully for session 8c227d39-b537-4ec3-afc1-b226187e64aa. Result: answer generated with 1 source(s).
+2025-11-03 15:12:45 - INFO - app.py:436 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 15:12:45 - INFO - app.py:442 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 15:13:24 - INFO - app.py:282 - Shutting down
+2025-11-03 15:14:16 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 15:14:16 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:14:18 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:14:18 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:14:21 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 0 stored vectors. Purpose: verify data availability.
+2025-11-03 15:14:22 - INFO - app.py:209 - Raw ChromaDB: collection 'conversational_docs' count=0 (inspected directly via PersistentClient).
+2025-11-03 15:14:22 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:14:22 - INFO - app.py:238 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:14:22 - INFO - app.py:254 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:14:22 - INFO - app.py:276 - Startup initialization complete
+2025-11-03 15:14:59 - INFO - app.py:436 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 15:14:59 - INFO - app.py:442 - Library: found 0 PDF(s). Result: returning file list to client.
+2025-11-03 15:15:11 - INFO - app.py:378 - Upload: processing new file 'Jupiter.pdf'. Purpose: save PDF and prepare for indexing.
+2025-11-03 15:15:11 - INFO - app.py:390 - Upload: file saved successfully to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\Jupiter.pdf. Next step: check embeddings provider for ingestion.
+2025-11-03 15:15:11 - WARNING - app.py:404 - Upload: could not check database size (name '_embed_fn' is not defined). Purpose: proceed with ingestion anyway.
+2025-11-03 15:15:11 - INFO - app.py:409 - Upload: triggering ingestion. Purpose: index new content for search. Expected outcome: chunks created and indexed.
+2025-11-03 15:15:16 - WARNING - app.py:421 - Upload: completed but could not verify database state (name '_embed_fn' is not defined). Reported chunks: 1
+2025-11-03 15:15:16 - INFO - app.py:436 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 15:15:16 - INFO - app.py:442 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 15:15:41 - INFO - app.py:321 - History: created new session 37d8f8db-4cee-4960-aca6-1f82f5e0ff86. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 15:15:41 - INFO - app.py:772 - Query: starting query execution for session 37d8f8db-4cee-4960-aca6-1f82f5e0ff86. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:15:41 - INFO - app.py:786 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:15:41 - INFO - app.py:795 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:15:42 - INFO - app.py:798 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:15:42 - INFO - app.py:801 - LLM: calling _qa with context and history. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:15:44 - INFO - app.py:803 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:15:44 - INFO - app.py:819 - Query: completed successfully for session 37d8f8db-4cee-4960-aca6-1f82f5e0ff86. Result: answer generated with 1 source(s).
+2025-11-03 15:19:32 - INFO - app.py:282 - Shutting down
+2025-11-03 15:19:57 - INFO - app.py:89 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 15:19:57 - INFO - app.py:95 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:20:00 - INFO - app.py:101 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:20:00 - INFO - app.py:184 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:20:04 - INFO - app.py:198 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:20:04 - INFO - app.py:225 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:20:04 - INFO - app.py:238 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:20:04 - INFO - app.py:254 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:20:04 - INFO - app.py:313 - Startup initialization complete
+2025-11-03 15:21:38 - INFO - app.py:90 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 15:21:38 - INFO - app.py:96 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:21:39 - INFO - app.py:102 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:21:39 - INFO - app.py:185 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:21:41 - INFO - app.py:199 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:21:41 - INFO - app.py:226 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:21:41 - INFO - app.py:239 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:21:41 - INFO - app.py:255 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:21:41 - INFO - app.py:314 - Startup initialization complete
+2025-11-03 15:21:44 - INFO - app.py:474 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 15:21:44 - INFO - app.py:480 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 15:21:52 - INFO - app.py:359 - History: created new session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 15:21:52 - INFO - app.py:810 - Query: starting query execution for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:21:52 - INFO - app.py:824 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:21:52 - INFO - app.py:833 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:21:54 - INFO - app.py:836 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:21:54 - INFO - app.py:839 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:21:56 - INFO - app.py:841 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:21:56 - INFO - app.py:857 - Query: completed successfully for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Result: answer generated with 1 source(s).
+2025-11-03 15:22:09 - INFO - app.py:353 - History: reusing existing chat history for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Purpose: maintain conversation context.
+2025-11-03 15:22:09 - INFO - app.py:810 - Query: starting query execution for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:22:09 - INFO - app.py:824 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:22:09 - INFO - app.py:833 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:22:09 - INFO - app.py:836 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:22:09 - INFO - app.py:839 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:22:14 - INFO - app.py:841 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:22:14 - INFO - app.py:857 - Query: completed successfully for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Result: answer generated with 1 source(s).
+2025-11-03 15:22:41 - INFO - app.py:353 - History: reusing existing chat history for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Purpose: maintain conversation context.
+2025-11-03 15:22:41 - INFO - app.py:810 - Query: starting query execution for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:22:41 - INFO - app.py:824 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:22:41 - INFO - app.py:833 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:22:42 - INFO - app.py:836 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:22:42 - INFO - app.py:839 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:22:44 - INFO - app.py:841 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:22:44 - INFO - app.py:857 - Query: completed successfully for session 85d1196a-ac1f-4aa5-a1b0-834146b18767. Result: answer generated with 1 source(s).
+2025-11-03 15:24:57 - INFO - app.py:320 - Shutting down
+2025-11-03 15:25:14 - INFO - app.py:90 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 15:25:14 - INFO - app.py:96 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:25:15 - INFO - app.py:102 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:25:15 - INFO - app.py:185 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:25:18 - INFO - app.py:199 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:25:18 - INFO - app.py:226 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:25:18 - INFO - app.py:239 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:25:18 - INFO - app.py:255 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:25:18 - INFO - app.py:314 - Startup initialization complete
+2025-11-03 15:25:30 - INFO - app.py:98 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, and LLM.
+2025-11-03 15:25:30 - INFO - app.py:104 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:25:31 - INFO - app.py:110 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:25:31 - INFO - app.py:193 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:25:34 - INFO - app.py:207 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:25:34 - INFO - app.py:234 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:25:34 - INFO - app.py:247 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:25:34 - INFO - app.py:263 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:25:34 - INFO - app.py:322 - Startup initialization complete
+2025-11-03 15:50:47 - INFO - app.py:99 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, LLM, and external search.
+2025-11-03 15:50:47 - WARNING - app.py:107 - Failed to initialize external search: cannot import name 'get_search_provider' from 'src.external_search' (C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\external_search.py). Web search augmentation will be disabled.
+2025-11-03 15:50:47 - INFO - app.py:114 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:50:50 - INFO - app.py:120 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:50:50 - INFO - app.py:203 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:50:53 - INFO - app.py:217 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:50:53 - INFO - app.py:244 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:50:53 - INFO - app.py:257 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:50:53 - INFO - app.py:273 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:50:53 - INFO - app.py:369 - Startup initialization complete
+2025-11-03 15:50:56 - INFO - app.py:529 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 15:50:56 - INFO - app.py:535 - Library: found 1 PDF(s). Result: returning file list to client.
+2025-11-03 15:51:13 - INFO - app.py:414 - History: created new session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 15:51:13 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:51:13 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:51:13 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:51:15 - INFO - app.py:891 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:51:15 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:51:18 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:51:18 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 1 source(s).
+2025-11-03 15:51:30 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 15:51:30 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:51:30 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:51:30 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:51:30 - INFO - app.py:891 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:51:30 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:51:36 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:51:36 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 1 source(s).
+2025-11-03 15:51:52 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 15:51:52 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:51:52 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:51:52 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:51:52 - INFO - app.py:891 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:51:52 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:51:55 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:51:55 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 1 source(s).
+2025-11-03 15:52:01 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 15:52:01 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 15:52:01 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 15:52:01 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 15:52:02 - INFO - app.py:891 - Retriever: found 1 relevant docs. Next step: generate answer using LLM.
+2025-11-03 15:52:02 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 15:52:05 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 15:52:05 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 1 source(s).
+2025-11-03 15:53:09 - INFO - app.py:375 - Shutting down
+2025-11-03 15:53:27 - INFO - app.py:99 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, LLM, and external search.
+2025-11-03 15:53:27 - WARNING - app.py:107 - Failed to initialize external search: cannot import name 'get_search_provider' from 'src.external_search' (C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\external_search.py). Web search augmentation will be disabled.
+2025-11-03 15:53:27 - INFO - app.py:114 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 15:53:30 - INFO - app.py:120 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 15:53:30 - INFO - app.py:203 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 15:53:33 - INFO - app.py:217 - Vectorstore: connected to database. Status: found 1 stored vectors. Purpose: verify data availability.
+2025-11-03 15:53:33 - INFO - app.py:244 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 15:53:33 - INFO - app.py:257 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 15:53:33 - INFO - app.py:273 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 15:53:33 - INFO - app.py:369 - Startup initialization complete
+2025-11-03 16:35:23 - INFO - app.py:471 - Upload: processing new file 'Product Design 1.pdf'. Purpose: save PDF and prepare for indexing.
+2025-11-03 16:35:24 - INFO - app.py:483 - Upload: file saved successfully to C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\data\Product Design 1.pdf. Next step: check embeddings provider for ingestion.
+2025-11-03 16:35:24 - INFO - app.py:495 - Upload: checked database state. Current size: 0 vectors. Purpose: baseline for ingestion.
+2025-11-03 16:35:24 - INFO - app.py:502 - Upload: triggering ingestion. Purpose: index new content for search. Expected outcome: chunks created and indexed.
+2025-11-03 16:35:35 - INFO - app.py:511 - Upload: ingestion complete. Database: 0 total vectors (added 0). Result: content is searchable.
+2025-11-03 16:35:35 - INFO - app.py:529 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 16:35:35 - INFO - app.py:535 - Library: found 2 PDF(s). Result: returning file list to client.
+2025-11-03 16:35:57 - INFO - app.py:414 - History: created new session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 16:35:57 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:35:57 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:35:57 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:35:58 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:35:58 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:36:05 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:36:05 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:36:22 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:36:22 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:36:22 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:36:22 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:36:22 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:36:22 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:36:27 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:36:27 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:36:50 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:36:50 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:36:50 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:36:50 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:36:50 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:36:50 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:36:54 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:36:54 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:38:29 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:38:29 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:38:29 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:38:29 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:38:29 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:38:29 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:38:41 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:38:41 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:39:20 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:39:20 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:39:20 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:39:20 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:39:21 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:39:21 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:39:24 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:39:24 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:39:34 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:39:34 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:39:34 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:39:34 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:39:35 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:39:35 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:39:39 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:39:39 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:39:47 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:39:47 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:39:47 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:39:47 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:39:48 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:39:48 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:39:52 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:39:52 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:40:01 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:40:01 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:40:01 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:40:01 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:40:02 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:40:02 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:40:05 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:40:05 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:40:17 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:40:17 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:40:17 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:40:17 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:40:18 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:40:18 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:40:21 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:40:21 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:40:35 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:40:35 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:40:35 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:40:35 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:40:36 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:40:36 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:40:40 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:40:40 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:40:45 - INFO - app.py:408 - History: reusing existing chat history for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: maintain conversation context.
+2025-11-03 16:40:45 - INFO - app.py:865 - Query: starting query execution for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:40:45 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:40:45 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:40:45 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:40:45 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:40:48 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:40:48 - INFO - app.py:912 - Query: completed successfully for session 22038af7-ad62-4a66-8fa2-b94d2ffff2e5. Result: answer generated with 3 source(s).
+2025-11-03 16:41:26 - INFO - app.py:529 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 16:41:26 - INFO - app.py:535 - Library: found 2 PDF(s). Result: returning file list to client.
+2025-11-03 16:41:32 - INFO - app.py:414 - History: created new session e68939d3-95fa-4380-9fd0-75ee3220ec90. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 16:41:32 - INFO - app.py:865 - Query: starting query execution for session e68939d3-95fa-4380-9fd0-75ee3220ec90. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 16:41:32 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 16:41:32 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 16:41:33 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 16:41:33 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 16:41:36 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 16:41:36 - INFO - app.py:912 - Query: completed successfully for session e68939d3-95fa-4380-9fd0-75ee3220ec90. Result: answer generated with 3 source(s).

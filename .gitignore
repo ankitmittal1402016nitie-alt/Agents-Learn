@@ -1,0 +1,17 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# Local DB for chroma
+db/
+
+# Editor files
+.vscode/
+.idea/
