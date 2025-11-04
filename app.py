@@ -28,6 +28,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from fastapi import UploadFile, File, Request
 from fastapi.responses import HTMLResponse, Response
+import re
 
 # Optional imports: try to import provider-specific helpers but don't fail at import time.
 # We will handle missing providers at runtime and produce helpful log messages.
@@ -78,6 +79,17 @@ from src.provider_status import app_status, ProviderMode, ProviderStatus
 DB_DIR = os.path.join(os.path.dirname(__file__), "db")
 MODEL_NAME = os.environ.get("MODEL_NAME", "gpt-4-mini")
 TEMPERATURE = float(os.environ.get("TEMPERATURE", "0.2"))
+# RAG / retrieval configuration (can be overridden in .env)
+RAG_TOP_K = int(os.getenv("RAG_TOP_K", "4"))
+RAG_FETCH_K = int(os.getenv("RAG_FETCH_K", "24"))
+RAG_USE_MMR = os.getenv("RAG_USE_MMR", "true").lower() in ("1", "true", "yes")
+RAG_USE_RERANK = os.getenv("RAG_USE_RERANK", "false").lower() in ("1", "true", "yes")
+MAX_TOKENS_CONTEXT = int(os.getenv("MAX_TOKENS_CONTEXT", "12000"))
+RAG_MMR_LAMBDA = float(os.getenv("RAG_MMR_LAMBDA", "0.5"))
+# Numeric gating for web augmentation: if top similarity score is below this threshold
+# the app will consider ingesting web pages. By default higher-is-better is assumed.
+RAG_WEB_SIMILARITY_THRESHOLD = float(os.getenv("RAG_WEB_SIMILARITY_THRESHOLD", "0.5"))
+RAG_WEB_SIMILARITY_HIGHER_IS_BETTER = os.getenv("RAG_WEB_SIMILARITY_HIGHER_IS_BETTER", "true").lower() in ("1", "true", "yes")
 
 # Global components (initialized at startup)
 _retriever = None
@@ -97,6 +109,7 @@ async def lifespan(app: FastAPI):
     global _retriever, _llm, _qa, _embed_fn, _external_search
     try:
         logger.info("Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, LLM, and external search.")
+        logger.info("Config: RAG_TOP_K=%s RAG_FETCH_K=%s RAG_USE_MMR=%s RAG_USE_RERANK=%s MAX_TOKENS_CONTEXT=%s RAG_MMR_LAMBDA=%s", RAG_TOP_K, RAG_FETCH_K, RAG_USE_MMR, RAG_USE_RERANK, MAX_TOKENS_CONTEXT, RAG_MMR_LAMBDA)
         
         # Initialize external search provider
         try:
@@ -203,7 +216,34 @@ async def lifespan(app: FastAPI):
             logger.info("Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=%s", DB_DIR)
             # Ensure we open the same collection name that ingestion used so both
             # codepaths operate on the same stored vectors.
-            collection_name = "conversational_docs"
+            # Derive embedding dimension from the embedding wrapper and namespace the
+            # collection name by dimension to avoid chromadb dimension mismatch errors.
+            try:
+                # derive model and dim from the embedding wrapper
+                try:
+                    if hasattr(_embed_fn, 'embed_query'):
+                        probe = _embed_fn.embed_query('test')
+                    else:
+                        probe = _embed_fn(['test'])
+                    embed_dim = len(probe) if probe else 1536
+                except Exception:
+                    embed_dim = 1536
+                # try to discover model name from env vars or embed wrapper attributes
+                model_name = os.getenv('GEMINI_EMBEDDING_MODEL') or os.getenv('OPENAI_EMBEDDING_MODEL') or 'unknown'
+                # sanitize model_name so it is safe for Chroma collection naming
+                try:
+                    import re as _re
+                    model_name = _re.sub(r'[^A-Za-z0-9._-]', '_', str(model_name))
+                    # strip leading/trailing non-alphanumeric characters
+                    model_name = _re.sub(r'^[^A-Za-z0-9]+|[^A-Za-z0-9]+$', '', model_name)
+                    if len(model_name) < 1:
+                        model_name = 'unknown'
+                except Exception:
+                    model_name = 'unknown'
+                collection_name = f"conversational_docs_{model_name}_{embed_dim}"
+                logger.info("Vectorstore: using collection %s", collection_name)
+            except Exception:
+                collection_name = "conversational_docs_unknown_1536"
             vs = Chroma(
                 persist_directory=DB_DIR,
                 embedding_function=_embed_fn,
@@ -234,14 +274,29 @@ async def lifespan(app: FastAPI):
             except Exception as e:
                 logger.warning("Vectorstore: could not check collection size. Error: %s. Next step: verify database state.", str(e))
             
-            _retriever = vs.as_retriever(
-                search_type="similarity",
-                search_kwargs={
-                    "k": 4,
-                    "score_threshold": 0.5  # Add similarity threshold
-                }
-            )
-            logger.info("Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.")
+            # Prefer a HybridRetriever that fuses vector similarity with keyword matches and optional web DB
+            try:
+                from src.hybrid_retriever import HybridRetriever
+                web_db_dir = os.path.join(os.path.dirname(__file__), "webdb")
+                web_vs = None
+                if os.path.exists(web_db_dir):
+                    try:
+                        web_vs = Chroma(persist_directory=web_db_dir, embedding_function=_embed_fn, collection_name=collection_name)
+                        logger.info("Vectorstore: connected to webdb for web-augmented search.")
+                    except Exception:
+                        logger.debug("Vectorstore: webdb exists but could not be opened; continuing without web augmentation.")
+                _retriever = HybridRetriever(vs=vs, web_vs=web_vs, k=RAG_TOP_K)
+                logger.info("Vectorstore: created HybridRetriever. Config: k=%s docs per query, hybrid search. fetch_k=%s use_mmr=%s use_rerank=%s", RAG_TOP_K, RAG_FETCH_K, RAG_USE_MMR, RAG_USE_RERANK)
+            except Exception:
+                # Fallback to simple retriever if hybrid not available
+                _retriever = vs.as_retriever(
+                    search_type="similarity",
+                    search_kwargs={
+                        "k": 4,
+                        "score_threshold": 0.5  # Add similarity threshold
+                    }
+                )
+                logger.info("Vectorstore: created simple retriever as fallback. Config: k=4 docs per query, similarity search.")
         except Exception as e_chroma:
             logger.error("Vectorstore: initialization failed. Error: %s\nStack trace:\n%s", str(e_chroma), traceback.format_exc())
             yield
@@ -264,7 +319,7 @@ async def lifespan(app: FastAPI):
                     _llm = GeminiChat(model=fallback_model, temperature=temperature)
                 except Exception as e2:
                     logger.error(f"Both primary and fallback models failed. Primary error: {str(e)}, Fallback error: {str(e2)}")
-                    raise GeminiError(f"Failed to initialize both primary model ({primary_model}) and fallback model ({fallback_model})")
+                    raise RuntimeError(f"Failed to initialize both primary model ({primary_model}) and fallback model ({fallback_model})")
             
             app_status.llm_status = ProviderStatus(
                 mode=ProviderMode.LIVE_API if not os.environ.get("DEBUG") else ProviderMode.DEBUG_STUB,
@@ -390,6 +445,9 @@ class QueryRequest(BaseModel):
     top_k: int = 5
     style: Optional[str] = "summary"  # or 'detailed'
     session_id: Optional[str] = None
+    url: Optional[str] = None
+    # force web augmentation (ingest and search webdb) even if local docs exist
+    force_web: Optional[bool] = False
 
 
 class QueryResponse(BaseModel):
@@ -397,6 +455,9 @@ class QueryResponse(BaseModel):
     answer: str
     sources: List[Dict]
 
+
+class IngestURLRequest(BaseModel):
+    url: str
 
 
 
@@ -458,6 +519,39 @@ async def ingest_endpoint():
             handle_provider_error(e)
         except HTTPException as he:
             raise he
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+def rerank_docs(docs: List[object], query: str) -> List[object]:
+    """Placeholder reranker: in production replace with a real reranker.
+
+    Currently returns docs unchanged but logs the action. Kept as a hook for RAG_USE_RERANK.
+    """
+    try:
+        logger.info("Reranker: invoked for %d docs. Purpose: optionally reorder top candidates.", len(docs))
+        # TODO: implement real reranker (e.g., local BGE/flashrank); for now return as-is
+        return docs
+    except Exception as e:
+        logger.debug("Reranker: failed: %s", str(e))
+        return docs
+
+
+@app.post("/ingest_url")
+async def ingest_url_endpoint(req: IngestURLRequest):
+    """Fetch and index a single webpage into the web vectorstore (webdb)."""
+    logger.info("Ingest URL: starting ingestion for %s", req.url)
+    try:
+        from ingest import ingest_url
+    except Exception:
+        logger.error("Ingest URL: ingest module not available")
+        raise HTTPException(status_code=501, detail="Ingest module not available")
+
+    try:
+        count = ingest_url(req.url)
+        logger.info("Ingest URL: completed for %s. Chunks indexed: %d", req.url, count)
+        return {"status": "ok", "indexed_chunks": count}
+    except Exception as e:
+        logger.error("Ingest URL: failed for %s: %s", req.url, str(e))
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -534,6 +628,83 @@ async def list_library():
         pdfs = [f for f in os.listdir(data_dir) if f.lower().endswith('.pdf')]
         logger.info("Library: found %d PDF(s). Result: returning file list to client.", len(pdfs))
         return {"files": pdfs}
+
+
+@app.get("/documents")
+async def list_documents():
+    """List all indexed documents (PDF chunks and web pages) for debugging."""
+    try:
+        docs = []
+        if _retriever and hasattr(_retriever, 'vs'):
+            # Try to get documents from main vectorstore
+            vs = _retriever.vs
+            try:
+                # Try LangChain-style get
+                if hasattr(vs, 'get'):
+                    data = vs.get()
+                    if isinstance(data, dict):
+                        for i, txt in enumerate(data.get("documents", [])):
+                            meta = data.get("metadatas", [])[i] if i < len(data.get("metadatas", [])) else {}
+                            docs.append({
+                                "id": data.get("ids", [])[i] if i < len(data.get("ids", [])) else "",
+                                "type": meta.get("type", "unknown"),
+                                "source": meta.get("source", ""),
+                                "page": meta.get("page", ""),
+                                "ingested_at": meta.get("ingested_at", ""),
+                                "chars": len(txt)
+                            })
+            except Exception as e:
+                logger.debug("Documents: could not list via vs.get(): %s", str(e))
+
+        # Try web vectorstore if available
+        if _retriever and hasattr(_retriever, 'web_vs') and _retriever.web_vs:
+            web_vs = _retriever.web_vs
+            try:
+                if hasattr(web_vs, 'get'):
+                    data = web_vs.get()
+                    if isinstance(data, dict):
+                        for i, txt in enumerate(data.get("documents", [])):
+                            meta = data.get("metadatas", [])[i] if i < len(data.get("metadatas", [])) else {}
+                            docs.append({
+                                "id": data.get("ids", [])[i] if i < len(data.get("ids", [])) else "",
+                                "type": meta.get("type", "unknown"),
+                                "source": meta.get("source", ""),
+                                "captured_at": meta.get("captured_at", ""),
+                                "chars": len(txt)
+                            })
+            except Exception as e:
+                logger.debug("Documents: could not list web docs: %s", str(e))
+
+        return {"documents": docs}
+    except Exception as e:
+        logger.error("Documents: failed to list indexed docs: %s", str(e))
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/healthz")
+async def health_check():
+    """Return service health status and index statistics."""
+    try:
+        docs = await list_documents()
+        doc_count = len(docs.get("documents", []))
+        chunks = sum(1 for d in docs.get("documents", []) if d.get("type") == "pdf")
+        web_chunks = sum(1 for d in docs.get("documents", []) if d.get("type") == "web")
+        
+        providers = app_status.to_dict()
+        
+        return {
+            "status": "ok",
+            "docs": doc_count,
+            "chunks": chunks,
+            "web_chunks": web_chunks,
+            "providers": providers
+        }
+    except Exception as e:
+        logger.error("Health: check failed: %s", str(e))
+        return {
+            "status": "error",
+            "error": str(e)
+        }
 
 
 @app.get("/ui", response_class=HTMLResponse)
@@ -885,9 +1056,108 @@ async def query_endpoint(req: QueryRequest):
         # Prepare chat_history for chain
         chat_history = [(m.type, m.content) for m in history.messages]
 
-        logger.info("Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to %d docs from vectorstore.", req.top_k)
-        # Get documents from retriever for sources
-        retrieved_docs = _retriever.get_relevant_documents(full_q)
+        top_k = req.top_k or RAG_TOP_K
+        logger.info("Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to %d docs (top_k=%d, fetch_k=%d).", req.top_k, top_k, RAG_FETCH_K)
+        # Try to obtain scores so we can decide whether to augment from web based on numeric gating
+        retrieved_docs = []
+        top_score = None
+        try:
+            if _retriever and hasattr(_retriever, 'get_relevant_documents_with_scores'):
+                scored = _retriever.get_relevant_documents_with_scores(full_q, k=top_k, fetch_k=RAG_FETCH_K, use_mmr=RAG_USE_MMR, mmr_lambda=RAG_MMR_LAMBDA)
+                if scored:
+                    retrieved_docs = [d for d, s in scored[:top_k]]
+                    try:
+                        top_score = float(scored[0][1])
+                    except Exception:
+                        top_score = None
+            else:
+                retrieved_docs = _retriever.get_relevant_documents(full_q, k=top_k, fetch_k=RAG_FETCH_K, use_mmr=RAG_USE_MMR, mmr_lambda=RAG_MMR_LAMBDA)
+        except Exception as e:
+            logger.warning("Retriever: initial get_relevant_documents (with scores) failed (%s); falling back to simple call.", str(e))
+            try:
+                retrieved_docs = _retriever.get_relevant_documents(full_q, k=top_k)
+            except Exception as e2:
+                logger.error("Retriever fallback failed: %s", str(e2))
+                retrieved_docs = []
+
+        # Conditional web augmentation: decide whether to augment using web search + ingest
+        try:
+            need_web = False
+            if getattr(req, 'url', None):
+                need_web = True
+            if getattr(req, 'force_web', False):
+                need_web = True
+            if not retrieved_docs:
+                need_web = True
+            # Numeric gating based on top_score from retriever (if available)
+            try:
+                if top_score is not None:
+                    if RAG_WEB_SIMILARITY_HIGHER_IS_BETTER:
+                        if top_score < RAG_WEB_SIMILARITY_THRESHOLD:
+                            need_web = True
+                    else:
+                        if top_score > RAG_WEB_SIMILARITY_THRESHOLD:
+                            need_web = True
+            except Exception:
+                logger.debug("WebAugment: failed numeric gating check (top_score=%s)", str(top_score))
+
+            # Heuristic: if query asks for "latest"/"current" info, prefer web
+            if re.search(r"\b(latest|current|recent|today|now|updated|as of)\b", req.query, re.I):
+                need_web = True
+
+            if need_web and _external_search is not None:
+                try:
+                    core_q = req.query.split("Question: ")[-1] if "Question: " in req.query else req.query
+                    logger.info("WebAugment: performing external web search for query to find candidate pages. Query=%s", core_q)
+                    results = _external_search.search(core_q, num_results=3)
+                    web_indexed = 0
+                    from ingest import ingest_url
+                    for r in results:
+                        link = r.get('link') or r.get('url') or r.get('href')
+                        if not link:
+                            continue
+                        try:
+                            logger.info("WebAugment: ingesting URL %s", link)
+                            n = ingest_url(link)
+                            web_indexed += n
+                        except Exception as ie:
+                            logger.debug("WebAugment: failed to ingest %s: %s", link, str(ie))
+
+                    if web_indexed > 0:
+                        try:
+                            web_db_dir = os.path.join(os.path.dirname(__file__), "webdb")
+                            if os.path.exists(web_db_dir):
+                                try:
+                                    web_vs = Chroma(persist_directory=web_db_dir, embedding_function=_embed_fn)
+                                    if _retriever and hasattr(_retriever, 'web_vs'):
+                                        _retriever.web_vs = web_vs
+                                    logger.info("WebAugment: webdb refreshed with %d newly indexed chunks.", web_indexed)
+                                    # Re-run retrieval to include web results; prefer scored method
+                                    try:
+                                        if _retriever and hasattr(_retriever, 'get_relevant_documents_with_scores'):
+                                            scored = _retriever.get_relevant_documents_with_scores(full_q, k=top_k, fetch_k=RAG_FETCH_K, use_mmr=RAG_USE_MMR, mmr_lambda=RAG_MMR_LAMBDA)
+                                            if scored:
+                                                retrieved_docs = [d for d, s in scored[:top_k]]
+                                        else:
+                                            retrieved_docs = _retriever.get_relevant_documents(full_q, k=top_k)
+                                    except Exception:
+                                        logger.debug("WebAugment: retriever re-run failed after web ingestion; keeping previous results.")
+                                except Exception as e:
+                                    logger.debug("WebAugment: failed to open web Chroma vectorstore: %s", str(e))
+                        except Exception:
+                            logger.debug("WebAugment: failed to refresh web vectorstore after ingestion")
+                except Exception as e:
+                    logger.debug("WebAugment: external search failed: %s", str(e))
+        except Exception as e:
+            logger.debug("WebAugment: unexpected error in augmentation logic: %s", str(e))
+
+        # Optional reranking step
+        if RAG_USE_RERANK:
+            try:
+                retrieved_docs = rerank_docs(retrieved_docs, full_q)
+            except Exception:
+                logger.debug("Reranker: failed; continuing with original ranking.")
+
         logger.info("Retriever: found %d relevant docs. Next step: generate answer using LLM.", len(retrieved_docs))
         
         # Get answer from chain (our _qa is a callable wrapper)
@@ -926,6 +1196,111 @@ async def query_endpoint(req: QueryRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.post("/chat")
+async def chat_endpoint(req: QueryRequest):
+    """New chat endpoint that returns structured segments and citations.
+
+    This is a first-pass implementation that uses the existing retriever and _qa callable.
+    It attributes sentences to top retrieved documents with a simple heuristic.
+    """
+    global _qa
+    if _qa is None:
+        raise HTTPException(status_code=503, detail="Search backend not initialized. Run ingest and restart the service.")
+
+    session_id, history = _get_or_create_history(req.session_id)
+
+    try:
+        style = (req.style or "summary").lower()
+        style_hint = f"User prefers a {style} answer."
+        system_instructions = (
+            "You are a helpful, friendly assistant. "
+            "Cite specific snippets from the retrieved context when useful. "
+            + ("Keep answers concise (3-5 sentences)." if style == "summary" else "Provide step-by-step explanations and include brief source quotes.")
+        )
+
+        full_q = f"{style_hint}\n\n{system_instructions}\n\nQuestion: {req.query}"
+
+        # Apply requested top_k to retriever when supported
+        try:
+            if _retriever is not None and hasattr(_retriever, 'search_kwargs'):
+                _retriever.search_kwargs = {"k": req.top_k}
+        except Exception:
+            logger.debug("Chat: could not set retriever top_k; using defaults")
+
+        chat_history = [(m.type, m.content) for m in history.messages]
+
+        top_k = req.top_k or RAG_TOP_K
+        try:
+            retrieved_docs = _retriever.get_relevant_documents(full_q, k=top_k, fetch_k=RAG_FETCH_K, use_mmr=RAG_USE_MMR, mmr_lambda=RAG_MMR_LAMBDA) if _retriever else []
+        except Exception as e:
+            logger.warning("Chat: retriever failed (%s); falling back to simple call.", str(e))
+            try:
+                retrieved_docs = _retriever.get_relevant_documents(full_q, k=top_k) if _retriever else []
+            except Exception as e2:
+                logger.error("Chat: retriever fallback failed: %s", str(e2))
+                retrieved_docs = []
+
+        if RAG_USE_RERANK and retrieved_docs:
+            try:
+                retrieved_docs = rerank_docs(retrieved_docs, full_q)
+            except Exception:
+                logger.debug("Chat reranker failed; continuing with original ranking.")
+
+        # Generate answer
+        answer = _qa(full_q, chat_history, retrieved_docs)
+
+        # Build citations list
+        citations = []
+        for i, doc in enumerate(retrieved_docs[:12], start=1):
+            meta = getattr(doc, 'metadata', {})
+            cid = f"C{i}"
+            citations.append({
+                "id": cid,
+                "label": str(i),
+                "source": meta.get('source', ''),
+                "page": meta.get('page', ''),
+                "snippet": (doc.page_content[:300] + ("..." if len(doc.page_content) > 300 else "")),
+                "type": meta.get('type', 'pdf')
+            })
+
+        # Split answer into sentences and attribute naive citations
+        # Fix regex to handle escaped newlines and properly match sentence endings
+        parts = re.split(r'(?<=[.!?])\s+(?=[A-Z])', answer.strip()) if answer else [""]
+        segments = []
+        for idx, sent in enumerate(parts):
+            sent_text = sent.strip()
+            if not sent_text:
+                continue
+            # Heuristic: find first doc whose snippet appears in sentence
+            assigned = None
+            low = sent_text.lower()
+            for j, doc in enumerate(retrieved_docs[:12], start=1):
+                snippet = (doc.page_content[:200] or "").lower()
+                if snippet and snippet in low:
+                    assigned = f"C{j}"
+                    break
+            if not assigned and citations:
+                assigned = citations[0]['id']
+            segments.append({"text": sent_text, "cite": assigned})
+
+        # Update history
+        history.add_user_message(req.query)
+        history.add_ai_message(answer)
+
+        return {
+            "session_id": session_id,
+            "segments": segments,
+            "citations": citations
+        }
+    except Exception as e:
+        logger.error("Chat: failed for session %s. Error: %s\n%s", session_id, str(e), traceback.format_exc())
+        try:
+            handle_provider_error(e)
+        except HTTPException as he:
+            raise he
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.post("/clear_history")
 class ClearHistoryRequest(BaseModel):
     session_id: str
@@ -942,4 +1317,68 @@ async def clear_history(req: ClearHistoryRequest):
             return {"status": "ok", "cleared": session_id}
         else:
             raise HTTPException(status_code=404, detail="session_id not found")
+
+
+
+    @app.get("/debug/collections")
+    async def debug_collections():
+        """Return discovered Chroma collections and counts plus DB files for debugging.
+
+        This endpoint does a best-effort inspection of the local Chroma DB directory
+        and returns collection names and the number of stored vectors.
+        """
+        try:
+            import os
+            try:
+                import chromadb
+                from chromadb.config import Settings
+            except Exception as e:
+                logger.error("debug_collections: chromadb not available: %s", str(e))
+                raise HTTPException(status_code=500, detail=f"chromadb not available: {e}")
+
+            # Try PersistentClient first, fall back to Client
+            try:
+                pc = chromadb.PersistentClient(path=DB_DIR)
+            except Exception:
+                pc = chromadb.Client(Settings(chroma_db_impl="duckdb+parquet", persist_directory=DB_DIR))
+
+            collections = []
+            try:
+                for c in pc.list_collections():
+                    # c may be a lightweight object with .name
+                    name = getattr(c, 'name', c)
+                    try:
+                        col = pc.get_collection(name=name)
+                        # prefer count() if available
+                        try:
+                            count = col.count() if hasattr(col, 'count') else None
+                        except Exception:
+                            count = None
+                        if count is None:
+                            try:
+                                info = col.get()
+                                count = len(info.get('ids', [])) if isinstance(info, dict) else None
+                            except Exception:
+                                count = None
+                        collections.append({"name": name, "count": count})
+                    except Exception as e:
+                        collections.append({"name": name, "error": str(e)})
+            except Exception as e:
+                logger.debug("debug_collections: failed to list collections: %s", str(e))
+
+            # List files in DB_DIR for convenience
+            db_files = []
+            try:
+                for fn in os.listdir(DB_DIR):
+                    p = os.path.join(DB_DIR, fn)
+                    db_files.append({"name": fn, "size": os.path.getsize(p) if os.path.isfile(p) else None})
+            except Exception as e:
+                logger.debug("debug_collections: failed to list DB files: %s", str(e))
+
+            return {"collections": collections, "db_files": db_files}
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error("debug_collections: unexpected error: %s", str(e))
+            raise HTTPException(status_code=500, detail=str(e))
 

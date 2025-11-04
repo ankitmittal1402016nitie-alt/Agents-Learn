@@ -1,25 +1,35 @@
+# FastAPI and server dependencies
 fastapi==0.115.9
 uvicorn[standard]==0.38.0
-openai==1.109.1
+pydantic==2.5.3
+pydantic-core==2.14.6
+
+# Database and embedding store
 chromadb==1.0.20
+
+# Document processing and ingestion
+pypdf==3.8.0
+python-multipart==0.0.6
+readability-lxml==0.8.1
+requests==2.31.0
+beautifulsoup4==4.12.3
+
+# LangChain and related packages
 langchain==0.0.300
 langchain-community==0.0.8
 langchain-openai==0.0.3
-pypdf==3.8.0
+
+# LLM providers
+openai==1.109.1
+google-generativeai==0.5.4
+google-auth==2.29.0
 tiktoken==0.5.2
+
+# Environment and configuration
 python-dotenv==1.0.1
+
+# PDF processing and reporting
 reportlab==4.0.0
 
-# Streamlit is optional for local UI testing only
-streamlit==1.51.0  # Optional - only needed if using streamlit_test.py
-
-# Google Gemini SDK (required for GeminiEmbeddings/GeminiChat adapter)
-# Google Gemini SDK (required for GeminiEmbeddings/GeminiChat adapter)
-google-generativeai==0.5.4
-
-# Google auth libraries (often used when using service account credentials)
-google-auth==2.29.0
-
-# Pydantic (matching pydantic-core used by some SDKs)
-pydantic==2.5.3
-pydantic-core==2.14.6
+# Optional - UI components (only needed if using streamlit_test.py)
+streamlit==1.51.0  # Optional

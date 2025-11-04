@@ -19,24 +19,49 @@ except Exception:
     import importlib_metadata
 
 CHECKS = {
-    "streamlit": {"modules": ["streamlit"], "dists": ["streamlit"]},
+    # Core server/runtime
     "fastapi": {"modules": ["fastapi"], "dists": ["fastapi"]},
     "uvicorn": {"modules": ["uvicorn"], "dists": ["uvicorn"]},
-    "openai": {"modules": ["openai"], "dists": ["openai"]},
+
+    # Validation + typing
+    "pydantic": {"modules": ["pydantic"], "dists": ["pydantic"]},
+    "pydantic-core": {"modules": ["pydantic_core"], "dists": ["pydantic-core"]},
+
+    # Embedding store / vector DB
     "chromadb": {"modules": ["chromadb"], "dists": ["chromadb"]},
+
+    # Document processing
+    "pypdf": {"modules": ["pypdf"], "dists": ["pypdf"]},
+    "python-multipart": {"modules": ["multipart", "python_multipart"], "dists": ["python-multipart"]},
+    "readability-lxml": {"modules": ["readability", "readability.readability"], "dists": ["readability-lxml"]},
+    "beautifulsoup4": {"modules": ["bs4"], "dists": ["beautifulsoup4"]},
+    "reportlab": {"modules": ["reportlab"], "dists": ["reportlab"]},
+
+    # Networking / scraping
+    "requests": {"modules": ["requests"], "dists": ["requests"]},
+
+    # LangChain + community integrations
     "langchain": {"modules": ["langchain"], "dists": ["langchain"]},
-    # langchain community/openai integrations may not provide top-level modules;
-    # we'll still try to detect the distribution name
     "langchain-community": {"modules": ["langchain_community", "langchain.community"], "dists": ["langchain-community"]},
     "langchain-openai": {"modules": ["langchain_openai", "langchain.openai"], "dists": ["langchain-openai"]},
-    "pypdf": {"modules": ["pypdf"], "dists": ["pypdf"]},
-    "tiktoken": {"modules": ["tiktoken"], "dists": ["tiktoken"]},
-    "python-dotenv": {"modules": ["dotenv"], "dists": ["python-dotenv", "dotenv"]},
-    "requests": {"modules": ["requests"], "dists": ["requests"]},
-    # Google Generative AI dependencies
+
+    # LLM providers + helpers
+    "openai": {"modules": ["openai"], "dists": ["openai"]},
     "google-generativeai": {"modules": ["google.generativeai"], "dists": ["google-generativeai"]},
     "google-auth": {"modules": ["google.auth"], "dists": ["google-auth"]},
-    "numpy": {"modules": ["numpy"], "dists": ["numpy"]},  # Required for vector operations
+
+    # Tokenizers / embeddings
+    "tiktoken": {"modules": ["tiktoken"], "dists": ["tiktoken"]},
+
+    # Utilities / config
+    "python-dotenv": {"modules": ["dotenv"], "dists": ["python-dotenv", "dotenv"]},
+    "numpy": {"modules": ["numpy"], "dists": ["numpy"]},
+
+    # Optional UI
+    "streamlit": {"modules": ["streamlit"], "dists": ["streamlit"]},
+
+    # Keep a catch-all alias (duplicate of beautifulsoup4) for clarity in output
+    "beautifulsoup4 (alias)": {"modules": ["bs4"], "dists": ["beautifulsoup4"]},
 }
 
 failures = []

@@ -1509,3 +1509,79 @@ src.gemini.GeminiError: Failed to embed query: Invalid input type. Expected one 
 2025-11-03 16:41:33 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
 2025-11-03 16:41:36 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
 2025-11-03 16:41:36 - INFO - app.py:912 - Query: completed successfully for session e68939d3-95fa-4380-9fd0-75ee3220ec90. Result: answer generated with 3 source(s).
+2025-11-03 18:13:29 - INFO - app.py:99 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, LLM, and external search.
+2025-11-03 18:13:29 - WARNING - app.py:107 - Failed to initialize external search: cannot import name 'get_search_provider' from 'src.external_search' (C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\external_search.py). Web search augmentation will be disabled.
+2025-11-03 18:13:29 - INFO - app.py:114 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 18:13:32 - INFO - app.py:120 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 18:13:32 - INFO - app.py:203 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 18:13:36 - INFO - app.py:217 - Vectorstore: connected to database. Status: found 9 stored vectors. Purpose: verify data availability.
+2025-11-03 18:13:36 - INFO - app.py:244 - Vectorstore: created retriever. Config: k=4 docs per query, similarity search. Next step: ready for search.
+2025-11-03 18:13:36 - INFO - app.py:257 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 18:13:36 - INFO - app.py:273 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 18:13:36 - INFO - app.py:369 - Startup initialization complete
+2025-11-03 18:13:36 - INFO - app.py:529 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 18:13:36 - INFO - app.py:535 - Library: found 2 PDF(s). Result: returning file list to client.
+2025-11-03 18:13:58 - INFO - app.py:414 - History: created new session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 18:13:58 - INFO - app.py:865 - Query: starting query execution for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 18:13:58 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 18:13:58 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 18:13:59 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 18:13:59 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 18:14:02 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 18:14:02 - INFO - app.py:912 - Query: completed successfully for session 232e8b12-ad10-4507-98b3-ace97675071a. Result: answer generated with 3 source(s).
+2025-11-03 18:14:26 - INFO - app.py:408 - History: reusing existing chat history for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: maintain conversation context.
+2025-11-03 18:14:26 - INFO - app.py:865 - Query: starting query execution for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 18:14:26 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 18:14:26 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 18:14:26 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 18:14:26 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 18:14:30 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 18:14:30 - INFO - app.py:912 - Query: completed successfully for session 232e8b12-ad10-4507-98b3-ace97675071a. Result: answer generated with 3 source(s).
+2025-11-03 18:14:51 - INFO - app.py:408 - History: reusing existing chat history for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: maintain conversation context.
+2025-11-03 18:14:51 - INFO - app.py:865 - Query: starting query execution for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 18:14:51 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 18:14:51 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 18:14:52 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 18:14:52 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 18:14:56 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 18:14:56 - INFO - app.py:912 - Query: completed successfully for session 232e8b12-ad10-4507-98b3-ace97675071a. Result: answer generated with 3 source(s).
+2025-11-03 18:15:42 - INFO - app.py:408 - History: reusing existing chat history for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: maintain conversation context.
+2025-11-03 18:15:42 - INFO - app.py:865 - Query: starting query execution for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 18:15:42 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 18:15:42 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 18:15:43 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 18:15:43 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 18:15:54 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 18:15:54 - INFO - app.py:912 - Query: completed successfully for session 232e8b12-ad10-4507-98b3-ace97675071a. Result: answer generated with 3 source(s).
+2025-11-03 18:17:07 - INFO - app.py:529 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 18:17:07 - INFO - app.py:535 - Library: found 2 PDF(s). Result: returning file list to client.
+2025-11-03 18:19:08 - INFO - app.py:408 - History: reusing existing chat history for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: maintain conversation context.
+2025-11-03 18:19:08 - INFO - app.py:865 - Query: starting query execution for session 232e8b12-ad10-4507-98b3-ace97675071a. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 18:19:08 - INFO - app.py:879 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 18:19:08 - INFO - app.py:888 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 18:19:09 - INFO - app.py:891 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 18:19:09 - INFO - app.py:894 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 18:19:12 - INFO - app.py:896 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 18:19:12 - INFO - app.py:912 - Query: completed successfully for session 232e8b12-ad10-4507-98b3-ace97675071a. Result: answer generated with 3 source(s).
+2025-11-03 18:20:23 - INFO - app.py:375 - Shutting down
+2025-11-03 23:58:07 - INFO - app.py:100 - Startup: beginning app initialization. Purpose: set up providers and services. Expected outcome: ready-to-use embeddings, vectorstore, LLM, and external search.
+2025-11-03 23:58:07 - WARNING - app.py:108 - Failed to initialize external search: cannot import name 'get_search_provider' from 'src.external_search' (C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\src\external_search.py). Web search augmentation will be disabled.
+2025-11-03 23:58:07 - INFO - app.py:115 - Embeddings: attempting to initialize Gemini embeddings. Purpose: provide vector embeddings for document indexing and retrieval.
+2025-11-03 23:58:11 - INFO - app.py:121 - Embeddings: GeminiEmbeddings initialized successfully. Next step: initialize vectorstore.
+2025-11-03 23:58:11 - INFO - app.py:204 - Vectorstore: initializing Chroma. Purpose: connect to vector database. Config: directory=C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\db
+2025-11-03 23:58:19 - INFO - app.py:218 - Vectorstore: connected to database. Status: found 19 stored vectors. Purpose: verify data availability.
+2025-11-03 23:58:19 - INFO - app.py:260 - Vectorstore: created simple retriever as fallback. Config: k=4 docs per query, similarity search.
+2025-11-03 23:58:19 - INFO - app.py:273 - LLM: initializing GeminiChat with primary model. Config: model=gemini-2.5-flash, temperature=0.7
+2025-11-03 23:58:19 - INFO - app.py:289 - LLM: GeminiChat initialized successfully. Next step: create QA wrapper.
+2025-11-03 23:58:19 - INFO - app.py:385 - Startup initialization complete
+2025-11-03 23:58:32 - INFO - app.py:568 - Library: listing available PDFs. Purpose: show uploadable/searchable documents to user.
+2025-11-03 23:58:32 - INFO - app.py:574 - Library: found 2 PDF(s). Result: returning file list to client.
+2025-11-03 23:59:04 - INFO - app.py:434 - History: created new session df35d792-ef94-443d-8199-ad8312f0dff0. Purpose: track new conversation. Expected outcome: empty history ready for chat.
+2025-11-03 23:59:04 - INFO - app.py:981 - Query: starting query execution for session df35d792-ef94-443d-8199-ad8312f0dff0. Purpose: retrieve relevant docs and generate answer.
+2025-11-03 23:59:04 - INFO - app.py:995 - Retriever: adjusting search parameters. Purpose: use client-requested k=3.
+2025-11-03 23:59:04 - INFO - app.py:1004 - Retriever: fetching relevant docs. Purpose: find context for query. Expected outcome: up to 3 docs from vectorstore.
+2025-11-03 23:59:09 - INFO - app.py:1007 - Retriever: found 3 relevant docs. Next step: generate answer using LLM.
+2025-11-03 23:59:09 - INFO - app.py:1010 - LLM: calling _qa with context, history and retrieved docs. Purpose: generate answer using retrieved docs. Expected outcome: natural language response.
+2025-11-03 23:59:15 - INFO - app.py:1012 - LLM: generated answer successfully. Next step: prepare sources and update history.
+2025-11-03 23:59:15 - INFO - app.py:1028 - Query: completed successfully for session df35d792-ef94-443d-8199-ad8312f0dff0. Result: answer generated with 3 source(s).
+2025-11-03 23:59:37 - INFO - app.py:391 - Shutting down

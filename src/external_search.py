@@ -57,3 +57,18 @@ class SerpAPIExternalSearch(ExternalSearch):
         except Exception as e:
             logger.warning("SerpAPIExternalSearch failed: %s", str(e))
             return []
+
+
+def get_search_provider():
+    """Factory: return an external search provider instance.
+
+    Uses environment variables (GOOGLE_SEARCH_API_KEY or SERPAPI_API_KEY). If
+    none are configured, returns a StubExternalSearch instance.
+    """
+    key = os.environ.get("GOOGLE_SEARCH_API_KEY") or os.environ.get("SERPAPI_API_KEY")
+    if key:
+        try:
+            return SerpAPIExternalSearch(api_key=key)
+        except Exception:
+            logger.warning("get_search_provider: SerpAPIExternalSearch failed to initialize; falling back to stub.")
+    return StubExternalSearch()

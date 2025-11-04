@@ -222,3 +222,38 @@
 2025-11-03 14:12:45,434 - INFO - ingest.py:216 - Embedded and stored 1 chunk(s) in ChromaDB.
 2025-11-03 14:12:45,434 - INFO - ingest.py:256 - Pipeline: completed successfully. Result: 1 chunks indexed and searchable.
 2025-11-03 14:12:45,434 - INFO - ingest.py:381 - Ingestion complete. Indexed 1 chunk(s). Success.
+2025-11-03 23:55:37,413 - INFO - utils.py:164 - NumExpr defaulting to 8 threads.
+2025-11-03 23:55:49,045 - INFO - ingest.py:472 - Running ingest as script
+2025-11-03 23:55:49,068 - INFO - ingest.py:107 - ingest: using src.gemini.GeminiEmbeddings for embeddings
+2025-11-03 23:55:49,068 - INFO - gemini.py:79 - GeminiEmbeddings: initializing provider with model models/gemini-embedding-001
+2025-11-03 23:55:54,386 - INFO - gemini.py:88 - GeminiEmbeddings: initialization successful. Result: live provider ready with model models/gemini-embedding-001.
+2025-11-03 23:55:54,999 - INFO - posthog.py:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-03 23:55:56,467 - INFO - gemini.py:98 - embed_documents: requesting embeddings for 10 documents. Purpose: create vectors for indexing/retrieval.
+2025-11-03 23:56:08,698 - INFO - gemini.py:125 - embed_documents: extracted 10 vectors; first vector length=3072
+2025-11-03 23:56:09,430 - INFO - ingest.py:243 - ingest: indexed 10 chunks from 2 PDFs
+2025-11-04 00:20:17,148 - INFO - utils.py:164 - NumExpr defaulting to 8 threads.
+2025-11-04 00:20:29,923 - INFO - ingest.py:472 - Running ingest as script
+2025-11-04 00:20:37,307 - INFO - ingest.py:114 - ingest: using OpenAIEmbeddings for embeddings
+2025-11-04 00:20:37,307 - WARNING - ingest.py:126 - ingest: falling back to StubEmbeds (no real embeddings available)
+2025-11-04 00:20:37,878 - INFO - posthog.py:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-04 00:20:39,315 - ERROR - ingest.py:240 - ingest: failed to upsert documents into vectorstore
+Traceback (most recent call last):
+  File "C:\Users\ankit3.mittal\Downloads\stackblitz-starters-co2wanhe\your-agent\ingest.py", line 228, in ingest_pdfs
+    vs.add_documents(docs_to_add, ids=ids)
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_core\vectorstores.py", line 119, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\langchain_community\vectorstores\chroma.py", line 297, in add_texts
+    self._collection.upsert(
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\chromadb\api\models\Collection.py", line 374, in upsert
+    self._client._upsert(
+  File "C:\Users\ankit3.mittal\AppData\Local\anaconda3\envs\agenticai\Lib\site-packages\chromadb\api\rust.py", line 464, in _upsert
+    return self.bindings.upsert(
+           ^^^^^^^^^^^^^^^^^^^^^
+chromadb.errors.InvalidArgumentError: Collection expecting embedding with dimension of 3072, got 1536
+2025-11-04 00:30:40,417 - INFO - utils.py:164 - NumExpr defaulting to 8 threads.
+2025-11-04 00:30:50,541 - INFO - ingest.py:516 - Running ingest as script
+2025-11-04 00:30:57,153 - INFO - ingest.py:136 - ingest: using OpenAIEmbeddings for embeddings
+2025-11-04 00:30:57,153 - WARNING - ingest.py:148 - ingest: falling back to StubEmbeds (no real embeddings available)
+2025-11-04 00:30:57,654 - INFO - posthog.py:22 - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-04 00:30:59,793 - INFO - ingest.py:273 - ingest: indexed 10 chunks from 2 PDFs
